@@ -62,10 +62,16 @@
     const sliderImages = document.querySelectorAll('.slide-in');
 
     function checkSlide(e) {
-        console.count(e);
+        console.count(window.scrollY);
+        
+        sliderImages.forEach(sliderImage => {
+            const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+            console.log(slideInAt);
+            
+        });
     }
 
-    window.addEventListener('scroll', checkSlide)
+    window.addEventListener('scroll', debounce(checkSlide));
 
   </script>
 
